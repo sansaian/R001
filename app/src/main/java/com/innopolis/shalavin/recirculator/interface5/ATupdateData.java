@@ -3,7 +3,6 @@ package com.innopolis.shalavin.recirculator.interface5;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -66,24 +65,24 @@ public class ATupdateData extends AsyncTask<Void, Void, String> {
             case 0: {
                 textViewShowTemper.setText(dataFromSensors[0]);
                 textViewShowHumidity.setText(dataFromSensors[1]);
-                serverErrorText.setText("");
-                serverErrorText.setVisibility(View.INVISIBLE);
                 onOffButton.setChecked(Boolean.valueOf(dataFromSensors[2]));
                 break;
             }
             case 1: {
                 textViewShowTemper.setText("0");
                 textViewShowHumidity.setText("0");
-                serverErrorText.setText("Ошибка1 подключения");
-                serverErrorText.setVisibility(View.VISIBLE);
+                //вывод сообщения
+                //serverErrorText.setText("Ошибка1 подключения");
+                //serverErrorText.setVisibility(View.VISIBLE);
                 break;
             }
             case 2: {
 
                 textViewShowTemper.setText("0");
                 textViewShowHumidity.setText("0");
-                serverErrorText.setText("Ошибка2 на стороне сервера");
-                serverErrorText.setVisibility(View.VISIBLE);
+                //вывод сообщения
+                // serverErrorText.setText("Ошибка2 на стороне сервера");
+                //serverErrorText.setVisibility(View.VISIBLE);
                 break;
             }
         }

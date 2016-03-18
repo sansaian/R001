@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0000ff"
+    android:background="#6959CD"
     android:weightSum="1">
 
 
@@ -18,64 +18,123 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal">
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="320dp"
+            android:stretchColumns="0,2"
+            android:id="@+id/tableLayout">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="0"
-            android:id="@+id/textShowTemper"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/textTemperature"
-            android:layout_marginStart="50dp" />
+            <TableRow android:padding="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:weightSum="1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="0"
-            android:id="@+id/textShowHumidity"
-            android:layout_alignParentTop="true"
-            android:layout_toEndOf="@+id/onOffButton"
-            android:layout_marginStart="42dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Температура дома"
+                    android:id="@+id/textTemperature"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Температура"
-            android:id="@+id/textTemperature"
-            android:layout_alignTop="@+id/textHumidity"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="20dp" />
+                    android:layout_alignParentStart="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Влажность"
-            android:id="@+id/textHumidity"
-            android:layout_below="@+id/textShowHumidity"
-            android:layout_toEndOf="@+id/onOffButton" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="0"
+                    android:id="@+id/textShowTemper"
+                    android:gravity="center"
+                    android:layout_column="2" />
+
+            </TableRow>
+            <TableRow android:padding="25dp">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Влажность дома  "
+                    android:id="@+id/textHumidity"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="0"
+                    android:id="@+id/textShowHumidity"
+                    android:gravity="center"
+                    android:layout_column="2" />
+
+            </TableRow>
+            <TableRow android:padding="25dp">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Углекислый газ"
+                    android:id="@+id/textCO2"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="0"
+                    android:id="@+id/textShowCO2"
+                    android:gravity="center"
+                    android:layout_column="2" />
+
+            </TableRow>
+            <TableRow android:padding="25dp">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:weightSum="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Углекислый газ"
+                    android:id="@+id/textCO"
+                    android:layout_alignParentStart="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="0"
+                    android:id="@+id/textShowCO"
+                    android:gravity="center"
+                    android:layout_column="2" />
+
+            </TableRow>
+        </TableLayout>
 
         <ToggleButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="New ToggleButton"
             android:id="@+id/onOffButton"
-            android:layout_marginBottom="60dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_below="@+id/tableLayout"
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Small Text"
-            android:id="@+id/serverErrorText"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:checked="false"
+            android:text="onOffButton" />
+
 
     </RelativeLayout>
+
 
 </LinearLayout>

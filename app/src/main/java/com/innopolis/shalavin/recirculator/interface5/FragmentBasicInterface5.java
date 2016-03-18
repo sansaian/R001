@@ -73,7 +73,7 @@ public class FragmentBasicInterface5 extends Fragment implements CompoundButton.
         View v = inflater.inflate(R.layout.fragment_basic_interface5, container, false);
         textViewShowTemper = (TextView) v.findViewById(R.id.textShowTemper);
         textViewShowHumidity = (TextView) v.findViewById(R.id.textShowHumidity);
-        serverErrorText = (TextView) v.findViewById(R.id.serverErrorText);
+       // serverErrorText = (TextView) v.findViewById(R.id.serverErrorText);
         onOffButton = (ToggleButton) v.findViewById(R.id.onOffButton);
         onOffButton.setOnCheckedChangeListener(this);
         callAsynchronousTask();
@@ -96,14 +96,13 @@ public class FragmentBasicInterface5 extends Fragment implements CompoundButton.
                         try {
                             ATupdateData atUpdateData = new ATupdateData(textViewShowHumidity,textViewShowTemper,onOffButton, "http://46.101.254.17:8000/commands/info_1235_0002",serverErrorText);
                             atUpdateData.execute();
-                            //onOffButton.setChecked(true);
                         } catch (Exception e) {
                         }
                     }
                 });
             }
         };
-        timer.schedule(doAsynchronousTask, 0, 10000); //execute in every 1 минута=60000
+        timer.schedule(doAsynchronousTask, 0, 60000); //execute in every 1 минута=60000
     }
 
     @Override
