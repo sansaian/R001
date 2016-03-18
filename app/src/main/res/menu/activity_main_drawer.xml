@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="Режимы">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_power"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Power" />
+        <item
+            android:id="@+id/nav_modules"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Modules" />
+        <item
+            android:id="@+id/nav_equipment"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Equipment" />
+        <item
+            android:id="@+id/nav_statistic"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Statistic" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Settings" />
+    </group>
+</item>
+    <item android:title="Настроить">
+        <menu>
+            <item
+                android:id="@+id/nav_newconnect"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Подключение" />
+            <item
+                android:id="@+id/nav_location"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Местоположение" />
+
+            <item
+                android:id="@+id/nav_notification"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Уведомление" />
+            <item
+                android:id="@+id/decontaminating"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Обеззараживатель" />
+            <item
+                android:id="@+id/service"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Сервис" />
+            <item
+                android:id="@+id/device_group"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Группа Устройств" />
+            <item
+                android:id="@+id/personal_data"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Персональные сведения" />
+            <item
+                android:id="@+id/main_screen"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Главный экран" />
+            <item
+                android:id="@+id/manual"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Инструкция" />
+        </menu>
+    </item>
+
+</menu>
