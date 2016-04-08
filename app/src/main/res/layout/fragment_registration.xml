@@ -1,0 +1,115 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.innopolis.shalavin.recirculator.main.Authorization.RegistrationFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Имя"
+                android:ems="10"
+                android:id="@+id/editText"
+                android:layout_marginTop="75dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Фамилия"
+                android:ems="10"
+                android:id="@+id/editText2"
+                android:layout_below="@+id/editText"
+                android:layout_alignStart="@+id/editText" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:text="Почта"
+                android:ems="10"
+                android:id="@+id/editText3"
+                android:layout_below="@+id/editText2"
+                android:layout_centerHorizontal="true" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Город"
+                android:ems="10"
+                android:id="@+id/editText4"
+                android:layout_below="@+id/editText3"
+                android:layout_alignEnd="@+id/editText3" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Улица"
+                android:ems="10"
+                android:id="@+id/editText5"
+                android:layout_below="@+id/editText4"
+                android:layout_centerHorizontal="true" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="дом"
+                android:id="@+id/editText6"
+                android:layout_below="@+id/editText5"
+                android:layout_alignStart="@+id/editText5" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="этаж"
+                android:id="@+id/editText7"
+                android:layout_alignTop="@+id/editText6"
+                android:layout_alignEnd="@+id/editText5" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="квадратура"
+                android:id="@+id/editText8"
+                android:layout_alignTop="@+id/editText7"
+                android:layout_centerHorizontal="true" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Вернуться"
+                android:id="@+id/button"
+                android:layout_marginTop="39dp"
+                android:layout_below="@+id/editText6"
+                android:layout_alignStart="@+id/editText6" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Далее"
+                android:id="@+id/button2"
+                android:layout_alignTop="@+id/button"
+                android:layout_alignEnd="@+id/editText7" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>

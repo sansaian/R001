@@ -1,0 +1,41 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.innopolis.shalavin.recirculator.main.firstconnect.BlankFragment">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Вернуться"
+            android:id="@+id/button3"
+            android:layout_below="@+id/textView3"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="45dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Включите свой новый обеззараживатель воздуха и находясь как можно ближе к нему нажмите кнопку приложения «начать поиск».  В течении 30 секунд мы попросим вас подтвердить подключение к смартфону или планшету найденный обеззараживатель воздуха.  Первичное подключение нескольких обеззараживателей производится последовательно.  Для упрощения подключения обеззараживателя к смартфону или планшету просим вас отключить другие обеззараживатели находящиеся в той же квартире или доме. "
+            android:id="@+id/textView3"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Начать Поиск"
+            android:id="@+id/button4"
+            android:layout_below="@+id/textView3"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="58dp" />
+    </RelativeLayout>
+
+</FrameLayout>

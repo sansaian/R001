@@ -126,8 +126,6 @@ public class FragmentBasicInterface5 extends Fragment implements CompoundButton.
         String androidId = Settings.Secure.getString(getActivity().getContentResolver(), Settings.Secure.ANDROID_ID);
         SendComand sendComand = new SendComand( androidId, textViewShowHumidity, textViewShowTemper,onOffButton,serverErrorText);
         sendComand.sendComandonServer();
-        // ATupdateData atUpdateData = new ATupdateData(this.textViewShowHumidity,this.textViewShowTemper,this.onOffButton,sendComand.getURLString(),serverErrorText);
-        // atUpdateData.execute();
 
     }
 }
