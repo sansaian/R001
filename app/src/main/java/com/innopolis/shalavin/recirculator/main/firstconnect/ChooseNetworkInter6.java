@@ -4,21 +4,19 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import com.innopolis.shalavin.recirculator.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link DeterminateQR.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link DeterminateQR#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class DeterminateQR extends Fragment {
+public class ChooseNetworkInter6 extends ListFragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -27,10 +25,11 @@ public class DeterminateQR extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    Button connectNetworkButton;
+    String[] names = { "Network1","Network2","Network3" };
 
-    private OnFragmentInteractionListener mListener;
 
-    public DeterminateQR() {
+    public ChooseNetworkInter6() {
         // Required empty public constructor
     }
 
@@ -40,11 +39,11 @@ public class DeterminateQR extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment DeterminateQR.
+     * @return A new instance of fragment ChooseNetworkInter6.
      */
     // TODO: Rename and change types and number of parameters
-    public static DeterminateQR newInstance(String param1, String param2) {
-        DeterminateQR fragment = new DeterminateQR();
+    public static ChooseNetworkInter6 newInstance(String param1, String param2) {
+        ChooseNetworkInter6 fragment = new ChooseNetworkInter6();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,45 +64,40 @@ public class DeterminateQR extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_determinate_qr, container, false);
+        View v = inflater.inflate(R.layout.fragment_choose_network_inter6, container, false);
+        connectNetworkButton= (Button) v.findViewById(R.id.connectNetworkButton);
+        connectNetworkButton.setOnClickListener(this);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_list_item_1, names);
+        setListAdapter(adapter);
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
+
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        Toast.makeText(getActivity(), "position = " + position, Toast.LENGTH_SHORT).show();
+    }
+    @Override
+    public void onClick(View v) {
+        Fragment finishInputDevice = new FinishInputDevice();
+        FragmentTransaction fTransfirctConnect = getFragmentManager().beginTransaction();
+        fTransfirctConnect.replace(R.id.frgmContFirstConnect,finishInputDevice , "FinishInputDevice");
+        fTransfirctConnect.commit();
     }
 }

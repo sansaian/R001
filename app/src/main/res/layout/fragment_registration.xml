@@ -97,7 +97,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Вернуться"
-                android:id="@+id/button"
+                android:id="@+id/buttonBack"
                 android:layout_marginTop="39dp"
                 android:layout_below="@+id/editText6"
                 android:layout_alignStart="@+id/editText6" />
@@ -106,9 +106,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Далее"
-                android:id="@+id/button2"
-                android:layout_alignTop="@+id/button"
+                android:id="@+id/buttonNext"
+                android:layout_alignTop="@+id/buttonBack"
                 android:layout_alignEnd="@+id/editText7" />
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Всегда спрашивать пароль"
+                android:id="@+id/switch1"
+                android:layout_below="@+id/editText6"
+                android:layout_alignStart="@+id/buttonBack"
+                android:checked="true" />
 
         </RelativeLayout>
     </LinearLayout>

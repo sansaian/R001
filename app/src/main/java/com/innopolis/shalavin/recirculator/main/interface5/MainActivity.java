@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.innopolis.shalavin.recirculator.R;
@@ -38,8 +39,8 @@ public class MainActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+
+
 
     }
 
@@ -81,18 +82,26 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
+        TextView modes= (TextView) findViewById(R.id.textView2);
         int id = item.getItemId();
 
         if (id == R.id.nav_power) {
-
+            Toast.makeText(getApplicationContext(), "Вы выбрали Режим Профилактика", Toast.LENGTH_SHORT).show();
+            //TextView modes= (TextView) findViewById(R.id.textView2);
+            modes.setText("Профилктика");
             // Handle the camera action
         } else if (id == R.id.nav_modules) {
-            Toast.makeText(getApplicationContext(), "Вы выбрали Режимы", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Вы выбрали Режим Дома есть больной", Toast.LENGTH_SHORT).show();
+            modes.setText("Дома есть больной");
         } else if (id == R.id.nav_equipment) {
-
+            Toast.makeText(getApplicationContext(), "Вы выбрали Режим Ждем гостей", Toast.LENGTH_SHORT).show();
+            modes.setText("Ждем гостей");
         } else if (id == R.id.nav_statistic) {
-
+            Toast.makeText(getApplicationContext(), "Вы выбрали Режим По расписанию", Toast.LENGTH_SHORT).show();
+            modes.setText("По расписанию");
         } else if (id == R.id.nav_settings) {
+            Toast.makeText(getApplicationContext(), "Вы выбрали Режим Включен всегда", Toast.LENGTH_SHORT).show();
+            modes.setText("Включен всегда");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

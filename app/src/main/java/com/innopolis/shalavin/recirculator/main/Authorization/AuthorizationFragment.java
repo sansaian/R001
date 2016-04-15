@@ -101,6 +101,7 @@ public class AuthorizationFragment extends Fragment implements View.OnClickListe
                 Fragment fragmentnReg = new RegistrationFragment();
                 FragmentTransaction fTrans = getFragmentManager().beginTransaction();
                 fTrans.replace(R.id.frgmContStart, fragmentnReg, "RegistrationFragment");
+                fTrans.addToBackStack(null);
                 fTrans.commit();
                 break;
             default:

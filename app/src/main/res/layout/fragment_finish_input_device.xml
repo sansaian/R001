@@ -1,0 +1,79 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.innopolis.shalavin.recirculator.main.firstconnect.FinishInputDevice">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Поздравляем, ваше устройство модели "
+            android:id="@+id/textView12"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OZ-345 "
+            android:id="@+id/textView13"
+            android:layout_below="@+id/textView12"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" с серийным номером "
+            android:id="@+id/textView14"
+            android:layout_below="@+id/textView13"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="54dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123-456-789-777 "
+            android:id="@+id/textView15"
+            android:layout_below="@+id/textView14"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  подключено к вспомогательному онлайн-сервису через сетевое подключение "
+            android:id="@+id/textView16"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" Сеть 1 "
+            android:id="@+id/textView17"
+            android:layout_below="@+id/textView16"
+            android:layout_alignStart="@+id/textView13" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Изменить настройки вы сможете перейдя в пункт «настройки» меню. "
+            android:id="@+id/textView18"
+            android:layout_below="@+id/textView17"
+            android:layout_marginTop="54dp"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Старт"
+            android:id="@+id/startButton"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</FrameLayout>

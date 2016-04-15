@@ -1,17 +1,21 @@
 package com.innopolis.shalavin.recirculator.main.Authorization;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.innopolis.shalavin.recirculator.R;
+import com.innopolis.shalavin.recirculator.main.firstconnect.MainActivityFirstConnect;
 
 
-public class RegistrationFragment extends Fragment {
+public class RegistrationFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -21,6 +25,8 @@ public class RegistrationFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    Button buttonNext;
+    Button buttonBack;
 
     public RegistrationFragment() {
         // Required empty public constructor
@@ -57,7 +63,12 @@ public class RegistrationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registration, container, false);
+        View v = inflater.inflate(R.layout.fragment_registration, container, false);
+        buttonBack = (Button) v.findViewById(R.id.buttonBack);
+        buttonNext = (Button) v.findViewById(R.id.buttonNext);
+        buttonBack.setOnClickListener(this);
+        buttonNext.setOnClickListener(this);
+        return v;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -78,4 +89,24 @@ public class RegistrationFragment extends Fragment {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+
+            case R.id.buttonNext:
+
+                Intent intent = new Intent(getActivity(), MainActivityFirstConnect.class);
+                startActivity(intent);
+                break;
+            case R.id.buttonBack:
+
+                Fragment authorizFragment = new AuthorizationFragment();
+                FragmentTransaction fTrans = getFragmentManager().beginTransaction();
+                fTrans.replace(R.id.frgmContStart, authorizFragment, "AuthorizationFragment");
+                fTrans.commit();
+                break;
+            default:
+                break;
+        }
+    }
 }

@@ -83,7 +83,9 @@ public class FragmentBasicInterface5 extends Fragment implements CompoundButton.
     //Метод вызывающий ATupdateData по расписанию можно сделать паблик и передавать в атрибуты
     public void callAsynchronousTask() {
 
-        final String url = "http://46.101.254.17:8000/commands/info_1235_0002";
+        //final String url = "http://46.101.254.17:8000/commands/info_1235_0002";
+        final String url = "http://87.117.188.21:8000/commands/info_1235_0002";
+
 
         final Handler handler = new Handler();
         Timer timer = new Timer();
@@ -94,7 +96,7 @@ public class FragmentBasicInterface5 extends Fragment implements CompoundButton.
                 handler.post(new Runnable() {
                     public void run() {
                         try {
-                            ATupdateData atUpdateData = new ATupdateData(textViewShowHumidity,textViewShowTemper,onOffButton, "http://46.101.254.17:8000/commands/info_1235_0002",serverErrorText);
+                            ATupdateData atUpdateData = new ATupdateData(textViewShowHumidity,textViewShowTemper,onOffButton, url,serverErrorText);
                             atUpdateData.execute();
                         } catch (Exception e) {
                         }
