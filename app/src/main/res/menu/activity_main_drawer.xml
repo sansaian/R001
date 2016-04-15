@@ -23,6 +23,14 @@
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_menu_manage"
             android:title="Включён всегда" />
+        <item
+            android:id="@+id/smart"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Интеллектуальный" />
+        <item
+            android:id="@+id/holydays"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="В отпуске" />
     </group>
 </item>
     <item android:title="Настроить">

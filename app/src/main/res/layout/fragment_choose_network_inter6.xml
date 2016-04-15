@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:text="Мы обнаружили для вашего обеззараживателя следующие доступные сети "
         android:id="@+id/textView10"
+        android:textSize="22dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
     <ListView
@@ -25,6 +26,7 @@
         android:layout_height="wrap_content"
         android:text="Дотроньтесь до наименований той сети к которой хотите подключить свой обеззараживатель. "
         android:id="@+id/textView11"
+        android:textSize="22dp"
         android:layout_centerVertical="true"
         android:layout_alignParentStart="true" />
 

@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.innopolis.shalavin.recirculator.R;
 
@@ -27,7 +26,7 @@ public class ChooseNetworkInter6 extends ListFragment implements View.OnClickLis
     private String mParam2;
     Button connectNetworkButton;
     String[] names = { "Network1","Network2","Network3" };
-
+    DialogChoiceNetwork dialogChoiceNetwork1;
 
     public ChooseNetworkInter6() {
         // Required empty public constructor
@@ -70,6 +69,8 @@ public class ChooseNetworkInter6 extends ListFragment implements View.OnClickLis
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                 android.R.layout.simple_list_item_1, names);
         setListAdapter(adapter);
+        dialogChoiceNetwork1 = new DialogChoiceNetwork();
+
         return v;
     }
 
@@ -90,8 +91,10 @@ public class ChooseNetworkInter6 extends ListFragment implements View.OnClickLis
     }
 
     public void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-        Toast.makeText(getActivity(), "position = " + position, Toast.LENGTH_SHORT).show();
+        dialogChoiceNetwork1.show(getActivity().getFragmentManager(),"sdad");
+
+
+
     }
     @Override
     public void onClick(View v) {
