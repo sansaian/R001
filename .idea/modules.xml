@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Recirculator.iml" filepath="$PROJECT_DIR$/Recirculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RecirculatorGit.iml" filepath="$PROJECT_DIR$/RecirculatorGit.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
