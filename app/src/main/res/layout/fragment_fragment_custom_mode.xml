@@ -1,0 +1,93 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.innopolis.shalavin.recirculator.main.Modes.FragmentCustomMode">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <TextClock
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textClock"
+            android:textSize="30dp"
+            android:layout_above="@+id/textView22"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/editText11"
+            android:text="              22-11-2015"
+            android:textSize="30dp"
+            android:layout_below="@+id/textView20"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Дата запуска"
+            android:id="@+id/textView20"
+            android:layout_alignParentTop="true"
+            android:layout_alignEnd="@+id/textClock" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Время Запуска"
+            android:id="@+id/textView21"
+            android:layout_above="@+id/textClock"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Время завершения работы"
+            android:id="@+id/textView22"
+            android:layout_above="@+id/textClock2"
+            android:layout_centerHorizontal="true" />
+
+        <TextClock
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textClock2"
+            android:textSize="30dp"
+            android:layout_centerVertical="true"
+            android:layout_alignStart="@+id/textClock" />
+
+        <Spinner
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:layout_above="@+id/textView21"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Количество Интервалов"
+            android:id="@+id/textView23"
+            android:layout_above="@+id/spinner"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Принять"
+            android:id="@+id/buttonAccept"
+            android:layout_below="@+id/textClock2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="95dp" />
+
+    </RelativeLayout>
+</FrameLayout>

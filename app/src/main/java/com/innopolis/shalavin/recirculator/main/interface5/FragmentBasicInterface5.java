@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -28,11 +29,11 @@ public class FragmentBasicInterface5 extends Fragment implements CompoundButton.
     ToggleButton onOffButton;
     TextView serverErrorText;
     //режим работы приложения
-    String mode = "usually";
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
+    ImageView imageView;
+    ImageView imageLine;
 
     public FragmentBasicInterface5() {
         // Required empty public constructor
@@ -70,21 +71,31 @@ public class FragmentBasicInterface5 extends Fragment implements CompoundButton.
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View v = inflater.inflate(R.layout.fragment_basic_interface5, container, false);
-        textViewShowTemper = (TextView) v.findViewById(R.id.textShowTemper);
-        textViewShowHumidity = (TextView) v.findViewById(R.id.textShowHumidity);
-       // serverErrorText = (TextView) v.findViewById(R.id.serverErrorText);
-        onOffButton = (ToggleButton) v.findViewById(R.id.onOffButton);
-        onOffButton.setOnCheckedChangeListener(this);
-        callAsynchronousTask();
+        View v = inflater.inflate(R.layout.testinterface5 , container, false);
+        imageView = (ImageView) v.findViewById(R.id.imageView);
+        imageLine = (ImageView) v.findViewById(R.id.gineImageView);
+        setDrawable();
+
+        //textViewShowTemper = (TextView) v.findViewById(R.id.textShowTemper);
+        //textViewShowHumidity = (TextView) v.findViewById(R.id.textShowHumidity);
+        // serverErrorText = (TextView) v.findViewById(R.id.serverErrorText);
+       // onOffButton = (ToggleButton) v.findViewById(R.id.onOffButton);
+       // onOffButton.setOnCheckedChangeListener(this);
+      //  callAsynchronousTask();
+
         return v;
+    }
+
+    private void setDrawable() {
+        imageView.setImageResource(R.drawable.shape);
+        imageLine.setImageResource(R.drawable.gine_image);
     }
 
     //Метод вызывающий ATupdateData по расписанию можно сделать паблик и передавать в атрибуты
     public void callAsynchronousTask() {
 
-        //final String url = "http://46.101.254.17:8000/commands/info_1235_0002";
-        final String url = "http://87.117.188.21:8000/commands/info_1235_0002";
+       // final String url = "https://doctorair.tk/commands/account_12QfBKI5wQ_1";
+        final String url = "https://doctorair.tk/commands/account_12QfBKI5wQ_{\"on\":1,\"mode\":1,\"mode_param\":\"\"}";
 
 
         final Handler handler = new Handler();

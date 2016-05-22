@@ -1,0 +1,55 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.innopolis.shalavin.recirculator.main.Settings.FragmentNotification">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Уведомления об эпидемиях"
+            android:id="@+id/checkBox2"
+            android:layout_marginTop="132dp"
+            android:textSize="22dp"
+            android:checked="false"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Уведомления об окончании рессурса лампы"
+            android:id="@+id/checkBox4"
+            android:textSize="22dp"
+            android:checked="false"
+            android:layout_below="@+id/checkBox2"
+            android:layout_alignStart="@+id/checkBox2" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Уведомления о заболевших соседях"
+            android:id="@+id/checkBox3"
+            android:layout_gravity="right|bottom"
+            android:textSize="22dp"
+            android:checked="false"
+            android:layout_below="@+id/checkBox4"
+            android:layout_alignStart="@+id/checkBox4" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:id="@+id/button2"
+            android:layout_below="@+id/checkBox3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="101dp" />
+    </RelativeLayout>
+
+</FrameLayout>

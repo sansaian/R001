@@ -4,8 +4,6 @@ package com.innopolis.shalavin.recirculator.main.interface5;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import com.innopolis.shalavin.recirculator.main.interface5.ATupdateData;
-
 /**
  * Created by Maxim on 05.03.2016.
  */
@@ -40,7 +38,7 @@ public class SendComand {
         //формирует URL
 
         // url = "https://46.101.254.17:8000/commands/switch_" + switchonof + "_1_"+this.androidId;
-        url = "http://46.101.254.17:8000/commands/switch_" + switchonof + "_1235_0002";
+        url = "http://87.117.188.21/commands/switch_" + switchonof + "_1235_0002";
         //Log.d("MyLog","Idandroid"+this.androidId);
         return url;
     }

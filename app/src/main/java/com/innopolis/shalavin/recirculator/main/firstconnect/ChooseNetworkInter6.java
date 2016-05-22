@@ -100,7 +100,22 @@ public class ChooseNetworkInter6 extends ListFragment implements View.OnClickLis
     public void onClick(View v) {
         Fragment finishInputDevice = new FinishInputDevice();
         FragmentTransaction fTransfirctConnect = getFragmentManager().beginTransaction();
-        fTransfirctConnect.replace(R.id.frgmContFirstConnect,finishInputDevice , "FinishInputDevice");
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            int  msg = bundle.getInt("ID_FRAME_ACTIVITY");
+            try {
+                Integer i1 = new Integer(msg);
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("ID_FRAME_ACTIVITY", R.id.frgmCont);
+                finishInputDevice.setArguments(bundle);
+                fTransfirctConnect.replace(i1, finishInputDevice, "FindDeviceFragment");
+            } catch (NumberFormatException e) {
+                System.err.println("Неверный формат строки!");
+            }
+        } else {
+            fTransfirctConnect.replace(R.id.frgmContFirstConnect, finishInputDevice, "FindDeviceFragment");
+        }
         fTransfirctConnect.commit();
+
     }
 }

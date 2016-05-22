@@ -87,7 +87,22 @@ public class FindDevice extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         Fragment chooseNetworkInterface6 = new ChooseNetworkInter6();
         FragmentTransaction fTransfirctConnect = getFragmentManager().beginTransaction();
-        fTransfirctConnect.replace(R.id.frgmContFirstConnect,chooseNetworkInterface6 , "ChooseNetworkInter6");
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            int  msg = bundle.getInt("ID_FRAME_ACTIVITY");
+            try {
+                Integer i1 = new Integer(msg);
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("ID_FRAME_ACTIVITY", R.id.frgmCont);
+                chooseNetworkInterface6.setArguments(bundle);
+                fTransfirctConnect.replace(i1, chooseNetworkInterface6, "FindDeviceFragment");
+            } catch (NumberFormatException e) {
+                System.err.println("Неверный формат строки!");
+            }
+        } else {
+            fTransfirctConnect.replace(R.id.frgmContFirstConnect, chooseNetworkInterface6, "FindDeviceFragment");
+        }
         fTransfirctConnect.commit();
+
     }
 }

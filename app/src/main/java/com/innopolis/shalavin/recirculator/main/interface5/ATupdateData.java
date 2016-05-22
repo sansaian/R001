@@ -94,25 +94,45 @@ public class ATupdateData extends AsyncTask<Void, Void, String> {
     private JSONObject getJsonObject() {
         String resultJson = "";
         do {
+           // try {
+
+            URL url = null;
             try {
-                URL url = new URL(this.urlString);
-                Log.d("MyLog", "адрес" + this.urlString);
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                url = new URL(this.urlString);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+            Log.d("MyLog", "адрес" + this.urlString);
+            HttpURLConnection urlConnection = null;
+            try {
+                urlConnection = (HttpURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
                 urlConnection.connect();
                 InputStream inputStream = urlConnection.getInputStream();
                 resultJson = readInputStream(inputStream);
                 Log.d("MyLog", "ответ сервера JSON " + resultJson);
                 dataJsonObj = new JSONObject(resultJson);
-            } catch (MalformedURLException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
-            } catch (Exception e) {
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            // Create the SSL connection
+
+
+
+
+            //} catch (MalformedURLException e) {
+             //   e.printStackTrace();
+            //} catch (Exception e) {
+            //    e.printStackTrace();
                 Log.d("MyLog", "проблемы с сервером");
                 ///сообщить пользователю  том что проблемы с сервером
                 // может стоит сделать определенное количество повторений потом сообщать что пиздец
                 //проблема когда ушли в сон он не останавливается.
                 sleep();
-            }
+            //}
         }
         while (resultJson.isEmpty());
         jsonhave = 0;
@@ -177,6 +197,7 @@ public class ATupdateData extends AsyncTask<Void, Void, String> {
 
             }
         } catch (Exception e) {
+
             jsonhave = 2;
             Log.d("MyLog", "ошибка не верный json ");
         }

@@ -18,11 +18,10 @@ public class DiscriptFirstConnect extends Fragment implements View.OnClickListen
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
     Button startSerchButton;
+
     public DiscriptFirstConnect() {
         // Required empty public constructor
     }
@@ -60,7 +59,7 @@ public class DiscriptFirstConnect extends Fragment implements View.OnClickListen
         // Inflate the layout for this fragment
 
         View v = inflater.inflate(R.layout.fragment_discription_first_connect, container, false);
-        startSerchButton= (Button) v.findViewById(R.id.startSearchButton);
+        startSerchButton = (Button) v.findViewById(R.id.startSearchButton);
         startSerchButton.setOnClickListener(this);
         return v;
     }
@@ -87,7 +86,21 @@ public class DiscriptFirstConnect extends Fragment implements View.OnClickListen
     public void onClick(View v) {
         Fragment findDeviceFragment = new FindDevice();
         FragmentTransaction fTransfirctConnect = getFragmentManager().beginTransaction();
-        fTransfirctConnect.replace(R.id.frgmContFirstConnect,findDeviceFragment , "FindDeviceFragment");
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            int  msg = bundle.getInt("ID_FRAME_ACTIVITY");
+            try {
+                Integer i1 = new Integer(msg);
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("ID_FRAME_ACTIVITY", R.id.frgmCont);
+                findDeviceFragment.setArguments(bundle);
+                fTransfirctConnect.replace(i1, findDeviceFragment, "FindDeviceFragment");
+            } catch (NumberFormatException e) {
+                System.err.println("Неверный формат строки!");
+            }
+        } else {
+            fTransfirctConnect.replace(R.id.frgmContFirstConnect, findDeviceFragment, "FindDeviceFragment");
+        }
         fTransfirctConnect.commit();
     }
 }

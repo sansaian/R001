@@ -88,7 +88,7 @@
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="квадратура"
+                android:text="Площадь"
                 android:id="@+id/editText8"
                 android:layout_alignTop="@+id/editText7"
                 android:layout_centerHorizontal="true" />

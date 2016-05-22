@@ -48,10 +48,7 @@
                 android:id="@+id/nav_notification"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Уведомление" />
-            <item
-                android:id="@+id/decontaminating"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Обеззараживатель" />
+
             <item
                 android:id="@+id/service"
                 android:icon="@drawable/ic_menu_send"
