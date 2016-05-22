@@ -24,11 +24,9 @@ public class FragmentBasicInterface5 extends Fragment implements CompoundButton.
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    TextView textViewShowTemper;
-    TextView textViewShowHumidity;
+    TextView textViewShowTemper,textViewShowHumidity,textViewShowCO2,textViewShowCO,textViewPressure;
     ToggleButton onOffButton;
     TextView serverErrorText;
-    //режим работы приложения
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -71,17 +69,20 @@ public class FragmentBasicInterface5 extends Fragment implements CompoundButton.
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View v = inflater.inflate(R.layout.testinterface5 , container, false);
+        View v = inflater.inflate(R.layout.testinterface5, container, false);
         imageView = (ImageView) v.findViewById(R.id.imageView);
         imageLine = (ImageView) v.findViewById(R.id.gineImageView);
         setDrawable();
 
-        //textViewShowTemper = (TextView) v.findViewById(R.id.textShowTemper);
-        //textViewShowHumidity = (TextView) v.findViewById(R.id.textShowHumidity);
+        textViewShowTemper = (TextView) v.findViewById(R.id.textShowTemper);
+        textViewShowHumidity = (TextView) v.findViewById(R.id.textShowHumidity);
+        textViewShowCO = (TextView) v.findViewById(R.id.textShowCO);
+        textViewShowCO2 = (TextView) v.findViewById(R.id.textShowCO2);
+        textViewPressure = (TextView) v.findViewById(R.id.textShowHumidity);
         // serverErrorText = (TextView) v.findViewById(R.id.serverErrorText);
-       // onOffButton = (ToggleButton) v.findViewById(R.id.onOffButton);
-       // onOffButton.setOnCheckedChangeListener(this);
-      //  callAsynchronousTask();
+        onOffButton = (ToggleButton) v.findViewById(R.id.onOffButton);
+        onOffButton.setOnCheckedChangeListener(this);
+        callAsynchronousTask();
 
         return v;
     }
@@ -94,8 +95,8 @@ public class FragmentBasicInterface5 extends Fragment implements CompoundButton.
     //Метод вызывающий ATupdateData по расписанию можно сделать паблик и передавать в атрибуты
     public void callAsynchronousTask() {
 
-       // final String url = "https://doctorair.tk/commands/account_12QfBKI5wQ_1";
-        final String url = "https://doctorair.tk/commands/account_12QfBKI5wQ_{\"on\":1,\"mode\":1,\"mode_param\":\"\"}";
+        // final String url = "https://doctorair.tk/commands/account_12QfBKI5wQ_1";
+        final String url = "https://doctorair.tk/commands/account_info_12QfBKI5wQ";
 
 
         final Handler handler = new Handler();
@@ -107,7 +108,7 @@ public class FragmentBasicInterface5 extends Fragment implements CompoundButton.
                 handler.post(new Runnable() {
                     public void run() {
                         try {
-                            ATupdateData atUpdateData = new ATupdateData(textViewShowHumidity,textViewShowTemper,onOffButton, url,serverErrorText);
+                            ATupdateData atUpdateData = new ATupdateData(textViewShowHumidity, textViewShowTemper, onOffButton, url,textViewShowCO,textViewShowCO2,textViewPressure);
                             atUpdateData.execute();
                         } catch (Exception e) {
                         }
@@ -131,14 +132,12 @@ public class FragmentBasicInterface5 extends Fragment implements CompoundButton.
     }
 
 
-
-
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         //возможно не стоит вызыать getActivity так как есть метод Attach
-        String androidId = Settings.Secure.getString(getActivity().getContentResolver(), Settings.Secure.ANDROID_ID);
-        SendComand sendComand = new SendComand( androidId, textViewShowHumidity, textViewShowTemper,onOffButton,serverErrorText);
-        sendComand.sendComandonServer();
+       String androidId = Settings.Secure.getString(getActivity().getContentResolver(), Settings.Secure.ANDROID_ID);
+       SendComand sendComand = new SendComand(androidId, textViewShowHumidity, textViewShowTemper, onOffButton, textViewShowCO,textViewShowCO2,textViewPressure);
+       sendComand.sendComandonServer();
 
     }
 }

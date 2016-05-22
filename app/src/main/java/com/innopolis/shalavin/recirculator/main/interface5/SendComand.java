@@ -9,15 +9,21 @@ import android.widget.ToggleButton;
  */
 public class SendComand {
     private TextView textViewShowHumidity;
+    private TextView textViewShowCO;
+    private TextView textViewShowCO2;
+    private TextView textViewPressure;
     private TextView textViewShowTemper;
     private ToggleButton onOffButton;
     private String mode;
     private String androidId;
     private TextView serverErrorText;
 
-    public SendComand(String andriodId, TextView textViewShowHumidity, TextView textViewShowTemper, ToggleButton onOffButton,TextView serverErrorText) {
-        this.textViewShowHumidity = textViewShowHumidity;
+    public SendComand(String andriodId,TextView textViewShowHumidity, TextView textViewShowTemper, ToggleButton onOffButton, TextView textViewShowCO, TextView textViewShowCO2, TextView textViewPressure) {
+        this.textViewShowCO = textViewShowCO;
+        this.textViewShowCO2 = textViewShowCO2;
+        this.textViewPressure = textViewPressure;
         this.textViewShowTemper = textViewShowTemper;
+        this.textViewShowHumidity = textViewShowHumidity;
         this.onOffButton = onOffButton;
         this.androidId = andriodId;
         this.serverErrorText = serverErrorText;
@@ -28,24 +34,22 @@ public class SendComand {
         String switchonof;
         String url = null;
         if (onOffButton.isChecked()) {
-            switchonof = "on";
+            switchonof = "1";
         } else {
-            switchonof = "off";
+            switchonof = "0";
         }
-
-        //получает данные о работающем режиме
 
         //формирует URL
 
-        // url = "https://46.101.254.17:8000/commands/switch_" + switchonof + "_1_"+this.androidId;
-        url = "http://87.117.188.21/commands/switch_" + switchonof + "_1235_0002";
+        url = "https://doctorair.tk/commands/account_request_12QfBKI5wQ_{\"on\":"+switchonof+",\"mode\":1,\"mode_param\":\"\"}";
+        //url = "http://87.117.188.21/commands/switch_" + switchonof + "_1235_0002";
         //Log.d("MyLog","Idandroid"+this.androidId);
         return url;
     }
 
     public void sendComandonServer()
     {
-       ATupdateData atUpdateData = new ATupdateData(this.textViewShowHumidity,this.textViewShowTemper,this.onOffButton,getURLString(),serverErrorText);
+       ATupdateData atUpdateData = new ATupdateData(this.textViewShowHumidity,this.textViewShowTemper,this.onOffButton,getURLString(),this.textViewShowCO,this.textViewShowCO2,this.textViewPressure);
         atUpdateData.execute();
     }
 

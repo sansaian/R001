@@ -26,17 +26,22 @@ public class ATupdateData extends AsyncTask<Void, Void, String> {
     private TextView textViewShowHumidity;
     private TextView serverErrorText;
     private TextView textViewShowTemper;
+    private TextView textViewShowCO;
+    private TextView textViewShowCO2;
+    private TextView textViewPressure;
     private ToggleButton onOffButton;
     private int jsonhave = 0;
     private String urlString;
-    String[] dataFromSensors = new String[4];
+    String[] dataFromSensors = new String[6];
 
-    public ATupdateData(TextView textViewShowHumidity, TextView textViewShowTemper, ToggleButton onOffButton, String urlString, TextView serverErrorText) {
+    public ATupdateData(TextView textViewShowHumidity, TextView textViewShowTemper, ToggleButton onOffButton, String urlString, TextView textViewShowCO, TextView textViewShowCO2, TextView textViewPressure) {
 
-        this.textViewShowHumidity = textViewShowHumidity;
+        this.textViewShowCO = textViewShowCO;
+        this.textViewShowCO2 = textViewShowCO2;
+        this.textViewPressure = textViewPressure;
         this.textViewShowTemper = textViewShowTemper;
+        this.textViewShowHumidity = textViewShowHumidity;
         this.onOffButton = onOffButton;
-        this.serverErrorText = serverErrorText;
         this.urlString = urlString;
     }
 
@@ -48,12 +53,11 @@ public class ATupdateData extends AsyncTask<Void, Void, String> {
     @Override
     protected String doInBackground(Void... params) {
         jsonhave = 0;
-        //  dataJsonObj = getJsonObject();
         try {
             parsJson(getJsonObject());
         } catch (JSONException e) {
             Log.d("MyLog", "проблема распарсить JSON ");
-            jsonhave = 2;
+            jsonhave = 1;
         }
         return "fhc";
     }
@@ -63,28 +67,26 @@ public class ATupdateData extends AsyncTask<Void, Void, String> {
         Log.d("MyLog", "jsonhave1 " + jsonhave);
         switch (jsonhave) {
             case 0: {
-                textViewShowTemper.setText(dataFromSensors[0]);
-                textViewShowHumidity.setText(dataFromSensors[1]);
+                textViewShowCO2.setText(dataFromSensors[0]);
+                textViewShowCO.setText(dataFromSensors[1]);
+                textViewShowTemper.setText(dataFromSensors[3]);
+                textViewShowHumidity.setText(dataFromSensors[5]);
+                textViewPressure.setText(dataFromSensors[4]);
                 onOffButton.setChecked(Boolean.valueOf(dataFromSensors[2]));
                 break;
             }
             case 1: {
+                textViewShowCO2.setText("0");
+                textViewShowCO.setText("0");
                 textViewShowTemper.setText("0");
                 textViewShowHumidity.setText("0");
+                textViewPressure.setText("0");
                 //вывод сообщения
                 //serverErrorText.setText("Ошибка1 подключения");
                 //serverErrorText.setVisibility(View.VISIBLE);
                 break;
             }
-            case 2: {
 
-                textViewShowTemper.setText("0");
-                textViewShowHumidity.setText("0");
-                //вывод сообщения
-                // serverErrorText.setText("Ошибка2 на стороне сервера");
-                //serverErrorText.setVisibility(View.VISIBLE);
-                break;
-            }
         }
 
 
@@ -94,8 +96,6 @@ public class ATupdateData extends AsyncTask<Void, Void, String> {
     private JSONObject getJsonObject() {
         String resultJson = "";
         do {
-           // try {
-
             URL url = null;
             try {
                 url = new URL(this.urlString);
@@ -113,26 +113,17 @@ public class ATupdateData extends AsyncTask<Void, Void, String> {
                 Log.d("MyLog", "ответ сервера JSON " + resultJson);
                 dataJsonObj = new JSONObject(resultJson);
             } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-            // Create the SSL connection
-
-
-
-
-            //} catch (MalformedURLException e) {
-             //   e.printStackTrace();
-            //} catch (Exception e) {
-            //    e.printStackTrace();
                 Log.d("MyLog", "проблемы с сервером");
-                ///сообщить пользователю  том что проблемы с сервером
-                // может стоит сделать определенное количество повторений потом сообщать что пиздец
-                //проблема когда ушли в сон он не останавливается.
+                jsonhave = 1;
                 sleep();
-            //}
+            } catch (JSONException e) {
+                Log.d("MyLog", "не удалось получить объект JSON");
+                jsonhave = 1;
+                sleep();
+            }
+            ///сообщить пользователю  том что проблемы с сервером
+            // может стоит сделать определенное количество повторений потом сообщать что пиздец
+            //проблема когда ушли в сон он не останавливается.
         }
         while (resultJson.isEmpty());
         jsonhave = 0;
@@ -173,7 +164,7 @@ public class ATupdateData extends AsyncTask<Void, Void, String> {
             Log.d("MyLog", "not error in parsJson1 ");
             for (int i = 0; i < events.length(); i++) {
                 JSONObject jsonEvent = events.getJSONObject(i);
-                String co = "", co2 = "", onoff = "";
+                String co="" , co2="" , onoff="" ,temperature="",humidity="",pressure="";
                 Iterator<String> iter = jsonEvent.keys();
                 while (iter.hasNext()) {
                     String key = iter.next();
@@ -188,10 +179,23 @@ public class ATupdateData extends AsyncTask<Void, Void, String> {
                         case "on":
                             onoff = jsonEvent.getString("on");
                             break;
+                        case "temperature":
+                            temperature = jsonEvent.getString("temperature");
+                            break;
+                        case "pressure":
+                            pressure = jsonEvent.getString("pressure");
+                            break;
+                        case "humidity":
+                            humidity = jsonEvent.getString("humidity");
+                            break;
+
                     }
-                    dataFromSensors[0] = co2;
                     dataFromSensors[1] = co;
+                    dataFromSensors[0] = co2;
                     dataFromSensors[2] = onoff;
+                    dataFromSensors[3] = temperature;
+                    dataFromSensors[4] = pressure;
+                    dataFromSensors[5] = humidity;
                     jsonhave = 0;
                 }
 
